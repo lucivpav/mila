@@ -1,0 +1,15 @@
+program test;
+begin
+  writeln(1);
+end.
+---input---
+begin
+  writeln(1);
+end.
+program test;
+---input---
+program test;
+program test2;
+begin
+  writeln(1);
+end.

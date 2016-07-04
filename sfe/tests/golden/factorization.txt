@@ -1,0 +1,60 @@
+Factors of: 0
+0
+Factors of: 1
+1
+Factors of: 2
+2
+Factors of: 3
+3
+Factors of: 4
+2
+2
+Factors of: 5
+5
+Factors of: 6
+2
+3
+Factors of: 7
+7
+Factors of: 8
+2
+2
+2
+Factors of: 9
+3
+3
+Factors of: 10
+2
+5
+Factors of: 11
+11
+Factors of: 12
+2
+2
+3
+Factors of: 13
+13
+Factors of: 14
+2
+7
+Factors of: 15
+3
+5
+Factors of: 16
+2
+2
+2
+2
+Factors of: 17
+17
+Factors of: 100
+2
+2
+5
+5
+Factors of: 131
+131
+Factors of: 133
+7
+19
+0

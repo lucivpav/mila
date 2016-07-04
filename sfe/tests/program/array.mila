@@ -1,0 +1,33 @@
+var a : array [ 0 .. 9 ] of integer;
+begin
+  a[0] := 42;
+  writeln(a[0]);
+end.
+---input---
+const min = -20;
+      max = 20;
+var a : array [ -20 .. 20 ] of integer;
+var i : integer;
+begin
+  for i := min to max do
+    begin
+    a[i] := i;
+    writeln(a[i]);
+  end;
+end.
+---input---
+var a : array [ 0 .. 9 ] of integer;
+begin
+  a[2] := 4;
+  a[4] := 42;
+  writeln(a[a[2]]);
+end.
+---input---
+var a : array [ 0 .. 9 ] of array [ 0 .. 9 ] of integer;
+---input---
+var min, max;
+begin
+  min := 1
+  max := 10;
+end.
+var a : array [ min .. max ] of integer;

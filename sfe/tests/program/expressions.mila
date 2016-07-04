@@ -1,0 +1,51 @@
+program expressions;
+
+const
+    Multiplyer = 5;
+var
+    n: integer;
+
+begin
+    readln(n);
+    n := (n - 1) * Multiplyer + 10;
+    writeln(n);
+end.
+---input---
+program expressions;
+
+const
+    Multiplyer = 5;
+var
+    n: integer;
+
+begin
+    readln(n);
+    n := (n - 1) * Multiplyer + 10;
+    writeln(n);
+end.
+---input---
+program expressions;
+
+const
+    Multiplyer = 5;
+var
+    n: integer;
+
+begin
+    readln(n);
+    n := (n - 1) * Multiplyer + 10;
+    writeln(n);
+end.
+---input---
+program expressions;
+
+const
+    Multiplyer = 5;
+var
+    n: integer;
+
+begin
+    readln(n);
+    n := (n - 1) * Multiplyer + 10;
+    writeln(n);
+end.

@@ -1,0 +1,18 @@
+begin
+  write('Hello, World!');
+end.
+---input---
+begin
+  write('hello'sworld');
+end.
+---input---
+begin
+  write('');
+end.
+---input---
+begin
+  write(42);
+end.
+---input---
+begin
+  write('hello

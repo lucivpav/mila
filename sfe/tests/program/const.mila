@@ -1,0 +1,29 @@
+const a = 1;
+begin
+  writeln(a);
+end.
+---input---
+const a = 1;
+const b = 2;
+begin
+  writeln(a);
+  writeln(b);
+end.
+---input---
+const a = 1;
+      b = 2;
+begin
+  writeln(a);
+  writeln(b);
+end.
+---input---
+const a : integer;
+begin
+  a := 1;
+  writeln(a);
+end.
+---input---
+begin
+  const a = 1;
+  writeln(a);
+end.

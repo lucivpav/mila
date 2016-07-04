@@ -1,0 +1,23 @@
+var a, b : integer;
+begin
+  a := 2;
+  while ( a <> 2 ) do
+    writeln(a);
+  writeln(1);
+end.
+---input---
+var a : integer;
+begin
+  a := 42;
+  while a = 52 do
+    break;
+  writeln(1);
+end.
+---input---
+var a : integer;
+begin
+  a := 42;
+  while a = 42 do
+    break;
+  writeln(1);
+end.

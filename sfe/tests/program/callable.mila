@@ -1,0 +1,225 @@
+procedure f(a : integer);
+begin
+  writeln(a);
+end;
+
+begin
+  f(42);
+end.
+---input---
+procedure f(a,b : integer; c:integer);
+begin
+  writeln(a+b+c);
+end;
+
+begin
+  f(1,2,3);
+end.
+---input---
+procedure f;
+begin
+  writeln(42);
+end;
+
+begin
+  f;
+end.
+---input---
+procedure f(a,b : integer);
+begin
+  writeln(a);
+end;
+
+begin
+  f(42);
+end.
+---input---
+procedure f : integer
+begin
+  writeln(42);
+end;
+
+begin
+  f;
+end.
+---input---
+procedure f;
+begin
+  f := 42;
+  writeln(1);
+end;
+
+begin
+  f;
+end.
+---input---
+function f(a : integer) : integer;
+begin
+  f := a;
+end;
+
+begin
+  writeln(f(42));
+end.
+---input---
+function f(a,b : integer; c:integer) : integer;
+begin
+  f := a+b+c;
+end;
+
+begin
+  writeln(f(1,2,3));
+end.
+---input---
+function f(a : integer);
+begin
+  f := a;
+end;
+
+begin
+  writeln(f(42));
+end.
+---input---
+function f(a : integer):integer;
+begin
+  b := a;
+end;
+
+begin
+  writeln(f(42));
+end.
+---input---
+function f(x : integer):integer;
+var a, b : integer;
+begin
+  for a := 1 to 3 do
+    for b := 3 downto a do
+      writeln(b);
+end;
+
+begin
+  f(42);
+end.
+---input---
+function f(a : integer):integer;forward;
+
+function g(a : integer):integer;
+begin
+  g := f(a);
+end;
+
+function f(a : integer):integer;
+begin
+  f := a;
+end;
+
+begin
+  writeln(g(42));
+  writeln(f(42));
+end.
+---input---
+function f(a : integer):integer; forward;
+function f(a : integer):integer; forward;
+function f(a : integer):integer;
+begin
+  f := a;
+end;
+
+begin
+  writeln(f(42));
+end.
+---input---
+function f(a : integer):integer;
+begin
+  f := a;
+end;
+
+function f(a : integer):integer;
+begin
+  f := a;
+end;
+
+begin
+  writeln(f(42));
+end.
+---input---
+function f(a : integer):integer;
+begin
+  f := a;
+  writeln(f);
+end;
+
+begin
+  f(42);
+end.
+---input---
+function f : integer;
+begin
+  f := a;
+  writeln(f);
+end;
+
+begin
+  f;
+end.
+---input---
+const a = 42;
+function f : integer;
+begin
+  f := a;
+end;
+
+begin
+  writeln(f);
+end.
+---input---
+const a = 42;
+function f : integer;
+var a : integer;
+begin
+  a := 30;
+  f := a;
+end;
+
+begin
+  writeln(f);
+  writeln(a);
+end.
+---input---
+{ incorrect number of parameters }
+function f(a,b : integer) : integer;
+begin
+  f := a+b;
+end;
+
+begin
+  f(10,20,30);
+end.
+---input---
+{ incorrect number of parameters }
+function f(a,b : integer) : integer;
+begin
+  f := a+b;
+end;
+
+begin
+  f(10);
+end.
+---input---
+{ undefined function }
+begin
+  unknown(666);
+end.
+---input---
+{ empty body }
+begin
+end.
+---input---
+{ empty body }
+procedure f;
+begin
+end;
+
+begin
+  f;
+end.

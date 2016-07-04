@@ -1,0 +1,9 @@
+Hello, World!0
+---output---
+256
+---output---
+0
+---output---
+256
+---output---
+256

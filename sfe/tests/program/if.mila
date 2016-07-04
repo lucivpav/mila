@@ -1,0 +1,33 @@
+var a : integer;
+begin
+  a := 2;
+  if a <> 2 then
+    writeln(0);
+  writeln(1);
+end.
+---input---
+var a : integer;
+begin
+  a := 2;
+  if a <> 2 then
+    writeln(0)
+  else
+    writeln(1);
+end.
+---input---
+var a : integer;
+begin
+  a := 2;
+  if a = 2 then
+    writeln(1)
+  else
+    writeln(0);
+end.
+---input---
+var a : integer;
+begin
+  a := 2;
+  if a = 2 then
+    writeln(1);
+  writeln(1);
+end.

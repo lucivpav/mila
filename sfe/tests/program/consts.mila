@@ -1,0 +1,10 @@
+program consts;
+
+const A =  10;
+      B = $10; { hexa }
+      C = &10; { octal }
+begin
+  writeln(A);
+  writeln(B);
+  writeln(C);
+end.

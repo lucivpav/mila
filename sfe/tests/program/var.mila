@@ -1,0 +1,59 @@
+var a : integer;
+var b : integer;
+begin
+  a := 1;
+  b := 2;
+  writeln(a);
+  writeln(b);
+end.
+---input---
+var a, b : integer;
+var c, d : integer;
+begin
+  a := 1;
+  b := 2;
+  c := 3;
+  d := 4;
+  writeln(a);
+  writeln(b);
+  writeln(c);
+  writeln(d);
+end.
+---input---
+var a, b : integer;
+    c, d : integer;
+    e : integer;
+begin
+  a := 1;
+  b := 2;
+  c := 3;
+  d := 4;
+  e := 5;
+  writeln(a);
+  writeln(b);
+  writeln(c);
+  writeln(d);
+  writeln(e);
+end.
+---input---
+var a;
+begin
+  a := 1;
+  writeln(a);
+end.
+---input---
+var a : int;
+begin
+  a := 1;
+  writeln(a);
+end.
+---input---
+begin
+  var a : integer;
+  a := 1;
+  writeln(a);
+end.
+---input---
+begin
+  writeln(a);
+end.

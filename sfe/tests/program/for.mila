@@ -1,0 +1,20 @@
+var a : integer;
+begin
+  for a := 1 to 3 do
+    writeln(a);
+end.
+---input---
+var a, b : integer;
+begin
+  for a := 1 to 3 do
+    for b := 3 downto a do
+      writeln(b);
+end.
+---input---
+var a, b : integer;
+begin
+  for a := 1 to 3 do
+    for b := 3 downto a do
+      if b = 2 then break
+      else writeln(b);
+end.

@@ -1,0 +1,44 @@
+var a,b : integer;
+begin
+  a := 1; b := 2;
+  if a = b then
+  begin
+    writeln(a);
+    writeln(b);
+  end;
+end.
+---input---
+var a,b : integer;
+begin
+  a := 1; b := 2;
+  if a = b then
+  begin
+    writeln(a);
+    writeln(b);
+  end
+end.
+---input---
+var a,b : integer;
+begin
+  a := 1; b := 2;
+  if a = b then
+  begin
+    writeln(a);
+    writeln(b);
+  end.
+end.
+---input---
+var a,b : integer;
+begin
+  a := 1; b := 2;
+  if a <> b then
+  begin
+    writeln(a);
+    if a = b then
+    begin
+      writeln(666);
+      writeln(666);
+    end;
+    writeln(b);
+  end;
+end.

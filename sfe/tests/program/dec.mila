@@ -1,0 +1,22 @@
+var a : integer;
+begin
+  a := 10;
+  dec(a);
+  writeln(a);
+end.
+---input---
+const a = 10;
+begin
+  dec(a);
+  writeln(a);
+end.
+---input---
+begin
+  dec(writeln(10));
+  writeln(a);
+end.
+---input---
+begin
+  dec(10);
+end.
+
