@@ -36,6 +36,9 @@ $ ./a.out
 ```
 [More sample programs](sfe/tests/program)
 
+### Precompiled binaries ###
+[Linux x86_64](https://drive.google.com/open?id=0B4nNsFFe8Gx9bVRVbzFNR1Y4S0k) (MD5: 484fb166b258c227db2ada0cb21c3889)
+
 ### Building from source ###
 ```Bash
 sh build.sh
