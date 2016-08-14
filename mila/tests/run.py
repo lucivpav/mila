@@ -21,7 +21,7 @@ def fetch_input(fprog, fin):
     return ret
 
 def produce_output(fprog, fout, first, fin):
-  mila = "../../../../llvm-obj/Debug+Asserts/examples/Sfe"
+  mila = "../../../../llvm-obj/Debug+Asserts/examples/Mila"
 
   if not first:
     f = open(fout, "a")

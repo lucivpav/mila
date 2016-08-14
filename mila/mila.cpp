@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
   }
 
   IRBuilder<> builder(getGlobalContext());
-  Module * module = new Module("Sfe", getGlobalContext());
+  Module * module = new Module("Mila", getGlobalContext());
   
   Parser parser(argv[1], getGlobalContext(), *module, builder);
   StatmList * prog = parser.getStatements();

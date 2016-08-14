@@ -7,7 +7,7 @@
 # 
 ##===----------------------------------------------------------------------===##
 LEVEL = ../..
-TOOLNAME = Sfe
+TOOLNAME = Mila
 EXAMPLE_TOOL = 1
 
 LINK_COMPONENTS := core mcjit native interpreter nativecodegen all-targets

@@ -13,6 +13,6 @@ set(LLVM_LINK_COMPONENTS
 
 set(LLVM_REQUIRES_RTTI 1)
 
-add_llvm_example(Sfe
-  sfe.cpp
+add_llvm_example(Mila
+  mila.cpp
   )

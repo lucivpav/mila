@@ -6,7 +6,7 @@ if [ ! -d llvm-src ]; then
   mkdir -p llvm-obj
 
   svn checkout https://llvm.org/svn/llvm-project/llvm/trunk@229311 llvm-src
-  mv sfe llvm-src/projects/sfe
+  mv mila llvm-src/projects/mila
 
 fi
 
