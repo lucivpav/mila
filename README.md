@@ -1,4 +1,6 @@
 # Mila
+[![Build Status](https://travis-ci.org/lucivpav/mila.svg?branch=master)](https://travis-ci.org/lucivpav/mila)
+
 A simple procedural and imperative language.
 
 ### Features ###
@@ -34,7 +36,7 @@ $ ./a.out
 ```Bash
 120
 ```
-[More sample programs](mila/tests/program)
+[More sample programs](tests/program)
 
 ### Precompiled binaries ###
 [Linux x86_64](https://drive.google.com/open?id=0B4nNsFFe8Gx9bVRVbzFNR1Y4S0k) (MD5: 484fb166b258c227db2ada0cb21c3889)
@@ -45,8 +47,12 @@ sh build.sh
 ```
 Mila binary can be found in
 ```Bash
-llvm-obj/Debug+Asserts/examples
+llvm-obj/Release+Asserts/examples
 ```
-
+### Runnings tests ###
+```Bash
+cd tests
+./run.py
+```
 ### License ###
 MIT
