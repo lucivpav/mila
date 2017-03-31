@@ -21,7 +21,13 @@ def fetch_input(fprog, fin):
     return ret
 
 def produce_output(fprog, fout, first, fin):
-  mila = "../../../../llvm-obj/Debug+Asserts/examples/Mila"
+  mila = "../llvm-obj/Debug+Asserts/examples/Mila"
+  if not os.path.exists(mila):
+    mila = "../llvm-obj/Release+Asserts/examples/Mila"
+  if not os.path.exists(mila):
+    print("mila compiler not found")
+    print(mila)
+    return
 
   if not first:
     f = open(fout, "a")
