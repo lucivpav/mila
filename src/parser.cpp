@@ -294,13 +294,13 @@ Assign *Parser::IntegerAssignStatement(std::string ident)
   return new Assign(new Var(ident), Expression());
 }
 
-ArraySet *Parser::ArrayAssignStatement(std::string ident)
+Assign *Parser::ArrayAssignStatement(std::string ident)
 {
   Symb = mLexer.nextToken();
   Expr * index = Expression();
   Compare(Token::RBR);
   Compare(Token::ASSIGN);
-  return new ArraySet(ident, index, Expression());
+  return new Assign(new ArrayElement(ident, index), Expression());
 }
 
 Expr *Parser::Expression(bool inBoolExpr)
@@ -356,7 +356,7 @@ Expr *Parser::Factor(bool inBoolExpr)
         Symb = mLexer.nextToken();
         Expr * index = Expression();
         Compare(Token::RBR);
-        return new ArrayGet(id, index);
+        return new ArrayElement(id, index);
       } else if ( Symb.type == Token::LPAR )
         return CallStatement(id, false);
       else return new Var(id); // either var or callable
@@ -382,10 +382,16 @@ Expr *Parser::Factor(bool inBoolExpr)
 Expr *Parser::AssignableExpression() // either var or arr[idx]
 {
   string ident;
+  Compare_IDENT(&ident);
   switch (Symb.type) {
-  case Token::IDENT: Compare_IDENT(&ident);
+  case Token::LBR: {
+    Symb = mLexer.nextToken();
+    Expr * index = Expression();
+    Compare(Token::RBR);
+    return new ArrayElement(ident, index);
+  }
+  default:
     return new Var(ident);
-  default: error("not an assignable expression");
   }
   assert ( false );
 }

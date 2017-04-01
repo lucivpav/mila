@@ -649,52 +649,6 @@ void Array::Print()
           ".." << mTo << "] of integer";
 }
 
-ArraySet::ArraySet(string ident, Expr *index, Expr *expr)
-  :ident(ident), index(index), expr(expr)
-{
-}
-
-Value *ArraySet::Translate()
-{
-  symbolTable->ensureDeclared(ident);
-  const SymbolTable::Symbol & s = symbolTable->get(ident);
-  if ( s.obj->getType() != Object::Array )
-    error(ident + " is not an array");
-
-  Array * arr = ((Array*)s.obj.get());
-  Value * ret = arr->getElementPtr(s.val, index.get());
-  Builder->CreateStore(expr->Translate(), ret);
-  return nullptr;
-}
-
-void ArraySet::Print()
-{
-  // todo
-}
-
-ArrayGet::ArrayGet(string ident, Expr *index)
-  :ident(ident), index(index)
-{
-
-}
-
-Value *ArrayGet::Translate()
-{
-  symbolTable->ensureDeclared(ident);
-  const SymbolTable::Symbol & s = symbolTable->get(ident);
-  if ( s.obj.get()->getType() != Object::Array )
-    error(ident + " is not an array");
-
-  Array * arr = ((Array*)s.obj.get());
-  Value * ret = arr->getElementPtr(s.val, index.get());
-  return Builder->CreateLoad(ret);
-}
-
-void ArrayGet::Print()
-{
-  // todo
-}
-
 bool Expr::expectedConstExpr() const
 {
   return mExpectedConstExpr;
@@ -946,7 +900,9 @@ Value *ReadLn::call(Var *v)
 {
   vector<Value*> args = {fmt, v->Pointer()};
   symbolTable->ensureNotConst(v->getName());
-  if ( symbolTable->get(v->getName()).obj->getType() != Object::Integer )
+  Object::Type type = symbolTable->get(v->getName()).obj->getType();
+  if ( type != Object::Integer &&
+       type != Object::Array )
     error(v->getName() + " is not assignable");
   return Builder->CreateCall(f, args);
 }
@@ -1074,4 +1030,33 @@ Value *Exit::call()
 void Exit::declare()
 {
   symbolTable->declCallable(false, "exit", new CallableObj(0,true), f);
+}
+
+ArrayElement::ArrayElement(std::string ident, Expr *index)
+  :Var(ident),
+   index(index)
+{
+}
+
+Value *ArrayElement::Translate()
+{
+  return Builder->CreateLoad(Pointer());
+}
+
+Value *ArrayElement::Pointer()
+{
+  string ident = getName();
+  symbolTable->ensureDeclared(ident);
+  const SymbolTable::Symbol & s = symbolTable->get(ident);
+  if ( s.obj->getType() != Object::Array )
+    error(ident + " is not an array");
+
+  Array * arr = ((Array*)s.obj.get());
+  Value * ret = arr->getElementPtr(s.val, index.get());
+  return ret;
+}
+
+void ArrayElement::Print()
+{
+  // todo
 }

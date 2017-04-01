@@ -56,7 +56,7 @@ private:
 
   Statm *AssignStatement(); // integer or array element assign
   Assign * IntegerAssignStatement(std::string ident);
-  ArraySet * ArrayAssignStatement(std::string ident);
+  Assign * ArrayAssignStatement(std::string ident);
 
   Expr *Expression(bool inBoolExpr = false);
   Expr *ExpressionPrimed(Expr *du, bool inBoolExpr);

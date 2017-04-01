@@ -59,7 +59,7 @@ public:
    virtual Value* Translate();
    virtual void Print();
 
-   Value * Pointer();
+   virtual Value * Pointer();
    const SymbolTable::Symbol &Symbol();
    const string & getName() const;
 };
@@ -168,25 +168,15 @@ public:
    Var * getVar();
 };
 
-/* set an array element */
-class ArraySet : public Statm {
-  string ident;
+class ArrayElement : public Var {
   unique_ptr<Expr> index;
-  unique_ptr<Expr> expr;
 public:
-   ArraySet(string ident, Expr * index, Expr * expr);
-   virtual Value* Translate();
-   virtual void Print();
-};
+  ArrayElement(string ident, Expr * index);
 
-/* get an array element */
-class ArrayGet : public Expr {
-  string ident;
-  unique_ptr<Expr> index;
-public:
-   ArrayGet(string ident, Expr * index);
-   virtual Value* Translate();
-   virtual void Print();
+  virtual Value* Translate();
+  virtual Value * Pointer();
+
+  virtual void Print();
 };
 
 class StatmList : public Statm {

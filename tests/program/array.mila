@@ -31,3 +31,9 @@ begin
   max := 10;
 end.
 var a : array [ min .. max ] of integer;
+---input---
+var a : array [ 0 .. 9 ] of integer;
+begin
+  readln(a[2]);
+  writeln(a[2]);
+end.
