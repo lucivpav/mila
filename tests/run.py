@@ -14,11 +14,21 @@ def fetch_input_impl(fin, out):
       return False
     print(line, file=fout, end='')
 
-def fetch_input(fprog, fin):
-    ret = fetch_input_impl(fprog, "tmp")
-    if not fin == 0:
-      fetch_input_impl(fin, "tmp2")
-    return ret
+def fetch_subinput_impl(fin, out):
+  fout = open(out, "w")
+  while True:
+    line = fin.readline()
+    if line == "---subinput---\n":
+      return True
+    if line == "---input---\n" or line == "":
+      return False
+    print(line, file=fout, end='')
+
+def fetch_subinput(fin):
+  return fetch_subinput_impl(fin, "tmp2")
+
+def fetch_input(fprog):
+  return fetch_input_impl(fprog, "tmp")
 
 def produce_output(fprog, fout, first, fin):
   mila = "../llvm-obj/Debug+Asserts/examples/Mila"
@@ -60,10 +70,22 @@ def gen_input(folder, prog):
     fin = open(finstr, "r")
 
   first = True
-  while fetch_input(fprog, fin):
+  if fin == 0: # no inputs
+    while fetch_input(fprog):
+      produce_output("tmp", folder + "/" + program + ".txt", first, "tmp2")
+      first = False
     produce_output("tmp", folder + "/" + program + ".txt", first, "tmp2")
-    first = False
-  produce_output("tmp", folder + "/" + program + ".txt", first, "tmp2")
+  else:
+    while True:
+      ret = fetch_input(fprog)
+      while True:
+        ret2 = fetch_subinput(fin)
+        produce_output("tmp", folder + "/" + program + ".txt", first, "tmp2")
+        first = False
+        if ret2 == False:
+          break
+      if ret == False:
+        break
 
 def gen(folder, input):
   if input == "--all":

@@ -1,7 +1,7 @@
 10
----input---
+---subinput---
 0
----input---
+---subinput---
 -1
----input---
+---subinput---
 -10
