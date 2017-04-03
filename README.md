@@ -39,7 +39,7 @@ $ ./a.out
 [More sample programs](tests/program)
 
 ### Precompiled binaries ###
-[Linux x86_64](https://drive.google.com/open?id=0B4nNsFFe8Gx9bVRVbzFNR1Y4S0k) (MD5: 484fb166b258c227db2ada0cb21c3889)
+[Releases](https://github.com/lucivpav/mila/releases)
 
 ### Building from source ###
 ```Bash
