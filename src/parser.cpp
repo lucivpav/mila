@@ -16,7 +16,7 @@ void Parser::CompareError(Token::Type s) {
 
 void Parser::CompareError(Token::Type expect, Token::Type get)
 {
-  error(std::string("excpected ") + Token::TypeStr[expect]
+  error(std::string("expected ") + Token::TypeStr[expect]
         + ", got " + Token::TypeStr[get]);
 }
 
@@ -218,13 +218,17 @@ Call *Parser::CallStatement(const string & ident, bool noParams)
 
   Symb = mLexer.nextToken();
   unsigned cnt;
-  for ( cnt = 0; Symb.type != Token::RPAR ; ++cnt ) {
-    if ( cnt ) Compare(Token::COMMA);
-    params.push_back( requireAssignable ?
-                        AssignableExpression() : Expression() );
+  if ( requireAssignable ) {
+    params.push_back( AssignableExpression() );
+    cnt++;
+  } else {
+    for ( cnt = 0; Symb.type != Token::RPAR ; ++cnt ) {
+      if ( cnt ) Compare(Token::COMMA);
+      params.push_back( Expression() );
+    }
   }
   Compare(Token::RPAR);
-  if ( !cnt ) error("calls without arguemts should be without ()");
+  if ( !cnt ) error("calls without arguments should be without ()");
   return new Call(ident, params);
 }
 
