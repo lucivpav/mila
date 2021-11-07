@@ -31,3 +31,19 @@ begin
     writeln(1);
   writeln(1);
 end.
+---input---
+function f: integer;
+var a : integer;
+begin
+  a := 2;
+  f := 666;
+  if a = 2 then
+    if a = 3 then
+      f := 0
+    else
+      f := 1;
+end;
+
+begin
+  writeln(f);
+end.
